@@ -17,4 +17,5 @@ public class Payment {
     private Double amount;
     private String status;
     private Date date;
+    private String method;
 }
