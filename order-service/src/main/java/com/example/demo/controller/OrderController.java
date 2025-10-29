@@ -32,7 +32,7 @@ public class OrderController {
     public String allOrders(Model model){
         List<Order> listOrders =orderService.getOrders();
         model.addAttribute("listOrders",listOrders);
-        return "list_orders";
+        return "List_orders";
     }
 
 

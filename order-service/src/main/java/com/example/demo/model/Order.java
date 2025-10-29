@@ -18,7 +18,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private int ref;
+    private String price;
     private int quantity;
 
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des commandes</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Liste des commandes</h1>
+
+<a class="btn" th:href="@{/addorder}">Ajouter une commande</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Référence</th>
+        <th>Prix</th>
+        <th>Date</th>
+        <th>Client</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${listOrders}">
+        <td th:text="${order.id}">1</td>
+        <td th:text="${order.ref}">REF001</td>
+        <td th:text="${order.price}">100.00</td>
+        <td th:text="${#dates.format(order.date, 'yyyy-MM-dd')}">2025-10-20</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
